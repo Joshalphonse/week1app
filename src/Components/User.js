@@ -13,7 +13,7 @@ const User = props => {
     <div>
       <List>
         <li onClick={() => editHandler(user)}>
-          {user.name},{user.username},{user.email}
+          {user.name} | {user.username} | {user.email}
         </li>
       </List>
 

@@ -27,8 +27,9 @@ class MainContainer extends Component {
   }
 
   changeHandler = e => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     let term = e.target.value.toLowerCase();
+    console.log(this.state.users);
     let newArray = [...this.state.users].filter(users =>
       users.name.toLowerCase().includes(term)
     );
@@ -51,9 +52,7 @@ class MainContainer extends Component {
 
   deleteClickHandler = userObj => {
     console.log("deleted");
-    let newArray = [...this.state.users].filter(
-      user => user.name !== userObj.name
-    );
+    let newArray = [...this.state.users].filter(user => user.id !== userObj.id);
 
     this.setState({
       users: newArray,
@@ -79,12 +78,13 @@ class MainContainer extends Component {
     editingPerson.email = e.target.email.value;
     console.log(e.target.email.value);
     editingPerson.name = e.target.name.value;
-    let newArray = [...this.state.filteredUsers].filter(
+    let newArray = [...this.state.users].filter(
       user => user.id !== editingPerson.id
     );
-
+    newArray.push(editingPerson);
+    console.log(newArray);
     this.setState({
-      users: [editingPerson, newArray]
+      users: newArray
     });
   };
 
@@ -92,10 +92,10 @@ class MainContainer extends Component {
     // console.log(this.state);
     // console.log(this.state.editingUser);
     return (
-      <div>
-        <React.Fragment>
+      <>
+        <>
           <Heading use="h2">USER LIST</Heading>
-        </React.Fragment>
+        </>
         <Search
           input={this.state.searchTerm}
           changeHandler={this.changeHandler}
@@ -115,7 +115,7 @@ class MainContainer extends Component {
           deleteClickHandler={this.deleteClickHandler}
           users={this.state.filteredUsers}
         />
-      </div>
+      </>
     );
   }
 }
