@@ -10,6 +10,7 @@ class MainContainer extends Component {
   state = {
     users: [],
     filteredUsers: [],
+    favoriteUser: [],
     searchTerm: "",
     edit: false,
     editingUser: {}
@@ -85,6 +86,10 @@ class MainContainer extends Component {
     });
   };
 
+  userClickHandle = userObj => {
+    console.log("Clicked", userObj);
+  };
+
   render() {
     // console.log(this.state);
     // console.log(this.state.editingUser);
@@ -111,6 +116,7 @@ class MainContainer extends Component {
           clickHandler={this.editHandler}
           deleteClickHandler={this.deleteClickHandler}
           users={this.state.filteredUsers}
+          userClickHandle={this.userClickHandle}
         />
       </>
     );

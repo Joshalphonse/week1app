@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Label, Input, Field } from "reakit";
 
 class NewUserForm extends Component {
   state = {

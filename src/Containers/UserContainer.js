@@ -8,6 +8,7 @@ class UserContainer extends Component {
         <User
           clickHandler={this.props.clickHandler}
           deleteClickHandler={this.props.deleteClickHandler}
+          userClickHandle={this.props.userClickHandle}
           user={user}
           key={user.id}
         />
