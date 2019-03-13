@@ -74,10 +74,7 @@ class MainContainer extends Component {
     let editingPerson = [...this.state.users].find(
       user => user.id === userObj.id
     );
-    editingPerson.username = e.target.username.value;
-    editingPerson.email = e.target.email.value;
-    console.log(e.target.email.value);
-    editingPerson.name = e.target.name.value;
+
     let newArray = [...this.state.users].filter(
       user => user.id !== editingPerson.id
     );
